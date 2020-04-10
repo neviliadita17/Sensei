@@ -1,0 +1,4 @@
+//Img
+Route::get('/produk/gambar/upload/{nama_p}', 'CImgUp@fileCreate');
+Route::post('/produk/gambar/upload/store', 'CImgUp@fileStore');
+Route::post('/produk/gambar/delete', 'CImgUp@fileDestroy');
