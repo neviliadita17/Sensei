@@ -14,7 +14,7 @@ class CImgUp extends Controller
         return view('produk/produk_upload_gambar', $data);
     }
 
-    public function fileStore(Request $request)
+    public function fileStore(Request $request)//upload ke db + pindah file ke project
     {
         $image = $request->file('file');
         $imageName = $image->getClientOriginalName();
@@ -27,7 +27,7 @@ class CImgUp extends Controller
         return response()->json(['success' => $imageName]);
     }
 
-    public function fileDestroy(Request $request)
+    public function fileDestroy(Request $request)// delete daata db + hapus file project
     {
         $filename =  $request->get('filename');
         DB::delete("DELETE FROM tb_gambar_p WHERE gambar_p = ?", ['/assets/img/gambar_produk/' . $filename]);
